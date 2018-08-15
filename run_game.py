@@ -1,6 +1,4 @@
-import cvc
-import pvp
-import pvc
+from game_setup import Game
 import sys
 
 def choose_game_type():
@@ -17,22 +15,26 @@ def choose_game_type():
             print('Invalid input. Try again.')
     print("You chose the {} game type.".format(game_type))
     if game_type == 'pvc':
-        game = pvc.PvC()
-        game.run()
+        game_type = 'pvc'
+        game = Game()
+        game.run(game_type)
     elif game_type == 'pvp':
-        game = pvp.PvP()
-        game.run()
+        game_type = 'pvp'
+        game = Game()
+        game.run(game_type)
     else:
-        game = cvc.CvC()
-        game.run()
+        game_type = 'cvc'
+        game = Game()
+        game.run(game_type)
 
 def play_again():
     while True:
-        play_again = input("Play again (yes/no)\n").strip().lower()
+        play_game_again = input("Play again (yes/no)\n").strip().lower()
         try:
-            if play_again == 'yes':
+            if play_game_again == 'yes':
                 choose_game_type()
-            elif play_again == 'no':
+            elif play_game_again == 'no':
+                print('Goodbye, see you next time.')
                 sys.exit(0)
             else:
                 raise ValueError
