@@ -15,15 +15,12 @@ def choose_game_type():
             print('Invalid input. Try again.')
     print("You chose the {} game type.".format(game_type))
     if game_type == 'pvc':
-        game_type = 'pvc'
         game = Game()
         game.run(game_type)
     elif game_type == 'pvp':
-        game_type = 'pvp'
         game = Game()
         game.run(game_type)
     else:
-        game_type = 'cvc'
         game = Game()
         game.run(game_type)
 
